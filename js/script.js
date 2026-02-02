@@ -78,23 +78,35 @@ $(document).ready(function () {
     });
 
 
+    // Sticky to top on click
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header_wrapper");
+
+        if (window.scrollY > 100) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    });
+
+
     // Inspect Not show code start here
-    (() => {
-        document.oncontextmenu = e => e.preventDefault();
-        document.onkeydown = e => {
-            if (
-                e.keyCode === 123 ||
-                (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) ||
-                (e.ctrlKey && [85, 83, 80].includes(e.keyCode))
-            ) return e.preventDefault();
-        };
-        setInterval(() => {
-            if (outerWidth - innerWidth > 160 || outerHeight - innerHeight > 160) {
-                document.body.innerHTML = '';
-                alert('Inspect Disabled 🚫');
-            }
-        }, 400);
-    })();
+    // (() => {
+    //     document.oncontextmenu = e => e.preventDefault();
+    //     document.onkeydown = e => {
+    //         if (
+    //             e.keyCode === 123 ||
+    //             (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) ||
+    //             (e.ctrlKey && [85, 83, 80].includes(e.keyCode))
+    //         ) return e.preventDefault();
+    //     };
+    //     setInterval(() => {
+    //         if (outerWidth - innerWidth > 160 || outerHeight - innerHeight > 160) {
+    //             document.body.innerHTML = '';
+    //             alert('Inspect Disabled 🚫');
+    //         }
+    //     }, 400);
+    // })();
 
 
 
