@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1199px) {
+    .header_wrapper .navbar-nav {
+        gap: 25px;
+    }
+}
+
 @media only screen and (max-width: 991px) {
     h2 {
         font-size: 35px;
@@ -120,19 +126,6 @@
         margin: 15px;
     }
 
-    .header_wrapper {
-        width: 10%;
-        transform: translateX(-100%);
-    }
-
-    .menu_style_ltr {
-        margin-left: 0;
-    }
-
-    .slider-wrapper {
-        max-width: 75%;
-    }
-
     .custom-prev,
     .custom-next {
         font-size: 12px;
@@ -172,6 +165,10 @@
 
     .footer_content {
         padding-right: 0;
+    }
+
+    .slider-wrapper {
+        max-width: 70%;
     }
 
 }
