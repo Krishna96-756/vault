@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Home page banner slider code start here 
     $('.banner_slider').slick({
         infinite: true,
         autoplay: false,
@@ -37,6 +38,7 @@ $(document).ready(function () {
         ]
     });
 
+
     // Video section MAIN SLIDER → VERTICAL
     $('.video-slider').slick({
         slidesToShow: 1,
@@ -52,6 +54,7 @@ $(document).ready(function () {
         asNavFor: '.video_slider_nav'
     });
 
+
     // Video section NAV SLIDER → FADE
     $('.video_slider_nav').slick({
         slidesToShow: 1,
@@ -64,12 +67,34 @@ $(document).ready(function () {
     });
 
 
+    // scroll to top on click
+    const btn = document.querySelector('.scroll_top');
+    window.addEventListener('scroll', () =>
+        btn.classList.toggle('show', window.scrollY > 200)
+    );
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
 
-
-
-
-
+    // Inspect Not show code start here
+    (() => {
+        document.oncontextmenu = e => e.preventDefault();
+        document.onkeydown = e => {
+            if (
+                e.keyCode === 123 ||
+                (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) ||
+                (e.ctrlKey && [85, 83, 80].includes(e.keyCode))
+            ) return e.preventDefault();
+        };
+        setInterval(() => {
+            if (outerWidth - innerWidth > 160 || outerHeight - innerHeight > 160) {
+                document.body.innerHTML = '';
+                alert('Inspect Disabled 🚫');
+            }
+        }, 400);
+    })();
 
 
 
